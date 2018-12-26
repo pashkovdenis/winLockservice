@@ -1,0 +1,46 @@
+﻿@{
+ 
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+} 
+@model IEnumerable<WinGuard.Domain.Model.ClientSession>
+<div class="content">
+    <h2 class="header">Current Sessions: </h2>
+    <hr /> 
+    <table class="table table-responsive">
+        <thead>
+            <tr>
+                <th> Client ID </th>
+                <th> UserName </th>
+                <th>
+                    
+                </th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+          
+
+                @foreach(var user in Model)
+                {
+
+                    <tr>
+                        <td> @user.ClientIdentifier</td>
+                        <td> @user.UserName</td>
+                        <td> <a asp-action="kick" asp-route-id="@user.ClientIdentifier" class="btn btn-danger" > Logout  </a></td>
+
+                    </tr>
+                }
+
+ 
+
+
+
+
+        </tbody>
+
+
+    </table>
+</div>
+
+
